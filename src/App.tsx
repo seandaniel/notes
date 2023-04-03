@@ -7,13 +7,15 @@ const App = () => {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/note1" element={<Note1 />} />
-        <Route path="/note2" element={<Note2 />} />
-        <Route path="/note3" element={<Note3 />} />
-        <Route path="/note4" element={<Note4 />} />
-        <Route path="/note5" element={<Note5 />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Note1 />} />
+          <Route path="/note2" element={<Note2 />} />
+          {/* <Route path="/note3" element={<Note3 />} />
+          <Route path="/note4" element={<Note4 />} />
+          <Route path="/note5" element={<Note5 />} /> */}
+        </Routes>
+      </main>
     </>
   );
 };
