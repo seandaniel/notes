@@ -4,37 +4,22 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export const Note1 = () => {
-  const {
-    markdown,
-    localStorageState,
-    handleNote,
-    minimizeNote,
-    minimizedNote,
-  } = useGlobalContext();
-
-  console.log(localStorageState);
+  const { note, markdown, handleNote, minimizedNote, minimizeNote } =
+    useGlobalContext();
 
   return (
     <>
-      <button onClick={minimizeNote}>-</button>
+      <button onClick={() => minimizeNote("1")}>-</button>
       {minimizedNote && (
         <textarea
           rows="80"
           cols="80"
-          value={
-            JSON.parse(localStorageState).noteText
-              ? JSON.parse(localStorageState).noteText
-              : markdown
-          }
-          onChange={handleNote}
+          value={markdown}
+          onChange={(e) => handleNote(e, "1")}
         ></textarea>
       )}
       <section>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {JSON.parse(localStorageState).noteText
-            ? JSON.parse(localStorageState).noteText
-            : markdown}
-        </ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
       </section>
     </>
   );

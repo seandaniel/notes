@@ -2,75 +2,90 @@ import React, { useState, useContext, useEffect } from "react";
 
 const AppContext = React.createContext(null);
 
-const defaultMarkdown = `# Heading
+// const defaultMarkdown = `# Heading
 
-**Bold Text**
+// **Bold Text**
 
-*Italic Text*
+// *Italic Text*
 
-~~StrikeThrough Text~~
+// ~~StrikeThrough Text~~
 
-* List Item 1
-* List Item 2
-* [ ] To Do
-* [x] Done
+// * List Item 1
+// * List Item 2
+// * [ ] To Do
+// * [x] Done
 
-\`\`\`
-code {
-  code: lives here;
-}
-\`\`\`
-`;
+// \`\`\`
+// code {
+//   code: lives here;
+// }
+// \`\`\`
+// `;
+
+const defaultMarkdown = "X";
 
 const AppProvider = ({ children }) => {
-  const getLocalStorage = (noteNumber: string): string | false | null => {
-    let note = localStorage.getItem(`note${noteNumber}`);
+  const getLocalStorage = () => {
+    let note = localStorage.getItem("Notes");
 
     if (note) {
-      return localStorage.getItem(`note${noteNumber}`);
+      return localStorage.getItem("Notes");
     } else {
-      return false;
+      return [];
     }
   };
 
-  const [note, setNote] = useState({
-    noteNumber: 1,
-    minimizeNote: false,
-    noteText: "",
-  });
-
+  console.log(getLocalStorage());
   const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
-  const [localStorageState, setLocalStorageState] = useState<
-    string | false | null
-  >(getLocalStorage("1"));
+  const [notes, setNotes] = useState(getLocalStorage());
+  const [note, setNote] = useState({
+    noteText: "",
+    noteId: "",
+    minimized: false,
+  });
+  const [minimizedNote, setMinimizedNote] = useState<boolean>(true);
 
-  // no spaces issue
   useEffect(() => {
-    localStorage.setItem("Note1", JSON.stringify(note));
-  }, [note]);
+    localStorage.setItem(`Notes`, notes);
+    console.log(notes);
+  }, [notes]);
 
-  const handleNote = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleNote = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+    noteNumber: string
+  ) => {
     setMarkdown(e.target.value);
-    setNote({
+
+    // need to set note only once
+    const newNote = {
       ...note,
+      noteID: noteNumber,
       noteText: e.target.value,
-    });
+    };
+    // setNote({
+    //   ...note,
+    //   noteId: noteNumber,
+    //   noteText: e.target.value,
+    // });
+
+    setNotes([newNote]);
+    // localStorage.setItem(`Notes`, JSON.stringify(notes));
   };
 
-  const [minimizedNote, setMinimizedNote] = useState<boolean>(true);
-  const minimizeNote = () => {
+  const minimizeNote = (noteNumber: string) => {
     setMinimizedNote(!minimizedNote);
     setNote({
       ...note,
-      minimizeNote: minimizedNote,
+      minimized: !minimizedNote,
     });
+    localStorage.setItem(`Note${noteNumber}`, JSON.stringify(note));
   };
 
   return (
     <AppContext.Provider
       value={{
+        note,
         markdown,
-        localStorageState,
         handleNote,
         minimizedNote,
         minimizeNote,

@@ -9,14 +9,9 @@ export const Header = () => {
     <header>
       <ul>
         <li>
-          <Link
-            to="/"
-            className={`${
-              JSON.parse(localStorageState).noteText && "note-filled"
-            } ${location.pathname === "/" && "on-note"}`}
-          >
-            Note 1
-          </Link>
+          <li>
+            <Link to="/">Note 1</Link>
+          </li>
         </li>
         <li>
           <Link to="/note2">Note 2</Link>
