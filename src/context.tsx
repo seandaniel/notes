@@ -22,70 +22,48 @@ const AppContext = React.createContext(null);
 // \`\`\`
 // `;
 
-const defaultMarkdown = "X";
-
 const AppProvider = ({ children }) => {
-  const getLocalStorage = () => {
-    let note = localStorage.getItem("Notes");
+  // set local storage or get individal localstorage?
 
-    if (note) {
-      return localStorage.getItem("Notes");
-    } else {
-      return [];
-    }
-  };
+  const [defaultMarkdown] = useState("X");
 
-  console.log(getLocalStorage());
-  const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
-  const [notes, setNotes] = useState(getLocalStorage());
-  const [note, setNote] = useState({
-    noteText: "",
-    noteId: "",
-    minimized: false,
+  const [markdown, setMarkdown] = useState<Object>({
+    note1: window.localStorage.getItem("note1"),
+    note2: window.localStorage.getItem("note2"),
   });
-  const [minimizedNote, setMinimizedNote] = useState<boolean>(true);
 
+  useEffect(() => {}, [markdown]);
+  const [notesState, setNotesState] = useState(window.localStorage);
+
+  // use effect takes arguments, which I don't know how to update
   useEffect(() => {
-    localStorage.setItem(`Notes`, notes);
-    console.log(notes);
-  }, [notes]);
+    handleNote(e.target.value, "1");
+  }, [markdown]);
 
   const handleNote = (
     e: React.ChangeEvent<HTMLTextAreaElement>,
     noteNumber: string
   ) => {
-    setMarkdown(e.target.value);
+    setMarkdown({
+      ...markdown,
+      [e.target.name]: e.target.value,
+    });
 
-    // need to set note only once
-    const newNote = {
-      ...note,
-      noteID: noteNumber,
-      noteText: e.target.value,
-    };
-    // setNote({
-    //   ...note,
-    //   noteId: noteNumber,
-    //   noteText: e.target.value,
-    // });
-
-    setNotes([newNote]);
-    // localStorage.setItem(`Notes`, JSON.stringify(notes));
+    // set it to that specific note
+    localStorage.setItem(`note${noteNumber}`, markdown[`note${noteNumber}`]);
   };
 
-  const minimizeNote = (noteNumber: string) => {
+  const [minimizedNote, setMinimizedNote] = useState<boolean>(true);
+  const minimizeNote = () => {
     setMinimizedNote(!minimizedNote);
-    setNote({
-      ...note,
-      minimized: !minimizedNote,
-    });
-    localStorage.setItem(`Note${noteNumber}`, JSON.stringify(note));
   };
 
   return (
     <AppContext.Provider
       value={{
-        note,
+        defaultMarkdown,
         markdown,
+        notesState,
         handleNote,
         minimizedNote,
         minimizeNote,

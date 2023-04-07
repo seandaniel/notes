@@ -4,22 +4,46 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export const Note1 = () => {
-  const { note, markdown, handleNote, minimizedNote, minimizeNote } =
-    useGlobalContext();
+  const {
+    defaultMarkdown,
+    markdown,
+    notesState,
+    handleNote,
+    minimizedNote,
+    minimizeNote,
+  } = useGlobalContext();
+  // object.values will put all the values of an object into an array
+  // object.keys will put all keys of an object into an array
 
+  // issue is when we don't have a note, it can't grab Object.values(notesState)[0] as it is undefined
+  // let note1Text;
+
+  // // if we have the noteState (localStorage), grab the text
+  // if (notesState.length !== 0) {
+  //   note1Text = JSON.parse(Object.values(notesState)[0]).note1;
+  // } else {
+  //   // if we don't have the note, the text is an empty string
+  //   note1Text = "";
+  // }
+
+  const note1Text = Object.values(notesState)[0];
   return (
     <>
-      <button onClick={() => minimizeNote("1")}>-</button>
+      <button onClick={minimizeNote}>-</button>
       {minimizedNote && (
         <textarea
+          name="note1"
+          s
           rows="80"
           cols="80"
-          value={markdown}
+          value={markdown.note1 ? markdown.note1 : defaultMarkdown}
           onChange={(e) => handleNote(e, "1")}
         ></textarea>
       )}
       <section>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {markdown.note1 ? markdown.note1 : defaultMarkdown}
+        </ReactMarkdown>
       </section>
     </>
   );
@@ -28,30 +52,44 @@ export const Note1 = () => {
 export const Note2 = () => {
   const {
     markdown,
-    localStorageState,
+    defaultMarkdown,
+    notesState,
     handleNote,
-    minimizeNote,
     minimizedNote,
+    minimizeNote,
   } = useGlobalContext();
+  // object.values will put all the values of an object into an array
+  // object.keys will put all keys of an object into an array
 
+  // issue is when we don't have a note, it can't grab Object.values(notesState)[0] as it is undefined
+  // let note1Text;
+
+  // // if we have the noteState (localStorage), grab the text
+  // if (notesState.length !== 0) {
+  //   note1Text = JSON.parse(Object.values(notesState)[0]).note1;
+  // } else {
+  //   // if we don't have the note, the text is an empty string
+  //   note1Text = "";
+  // }
+
+  const note1Text = Object.values(notesState)[1];
   return (
     <>
-      {/* <button onClick={minimizeNote}>-</button>
+      <button onClick={minimizeNote}>-</button>
       {minimizedNote && (
         <textarea
+          name="note2"
           rows="80"
           cols="80"
-          value={
-            localStorageState ? JSON.parse(localStorageState).note : markdown
-          }
-          onChange={handleNote}
+          value={markdown.note2 ? markdown.note2 : defaultMarkdown}
+          onChange={(e) => handleNote(e, "2")}
         ></textarea>
       )}
       <section>
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {localStorageState ? JSON.parse(localStorageState).note : markdown}
+          {markdown.note2 ? markdown.note2 : defaultMarkdown}
         </ReactMarkdown>
-      </section> */}
+      </section>
     </>
   );
 };
