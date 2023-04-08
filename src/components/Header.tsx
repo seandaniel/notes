@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import "./_header.scss";
 
 export const Header = () => {
   const { markdown } = useGlobalContext();
   const location = useLocation();
+
+  // todo: map over array of notes and return a link for each note
 
   return (
     <header>

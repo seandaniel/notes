@@ -11,6 +11,8 @@ import "./App.scss";
 const App = () => {
   const location = useLocation();
 
+  // todo: extract location.pathname logic to a function
+
   return (
     <>
       <Header />

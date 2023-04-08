@@ -58,6 +58,8 @@ const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setMinimizedNote(!minimizedNote);
   };
 
+  // todo: useMemo around context value
+
   return (
     <AppContext.Provider
       value={{

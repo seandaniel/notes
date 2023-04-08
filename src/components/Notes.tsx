@@ -7,6 +7,9 @@ import "./_notes.scss";
 export const Note1 = () => {
   const { defaultMarkdown, markdown, handleNote, minimizedNote, minimizeNote } =
     useGlobalContext();
+
+  // todo: return markdown function to replace value/markdown logic in note components
+
   return (
     <>
       <section className="note-container">
@@ -22,6 +25,7 @@ export const Note1 = () => {
           )}
           {minimizedNote && (
             <textarea
+              className="textarea-1"
               name="note1"
               rows={20}
               cols={50}
@@ -73,6 +77,7 @@ export const Note2 = () => {
           )}
           {minimizedNote && (
             <textarea
+              className="textarea-2"
               name="note2"
               rows={20}
               cols={50}
@@ -124,6 +129,7 @@ export const Note3 = () => {
           )}
           {minimizedNote && (
             <textarea
+              className="textarea-3"
               name="note3"
               rows={20}
               cols={50}
@@ -175,6 +181,7 @@ export const Note4 = () => {
           )}
           {minimizedNote && (
             <textarea
+              className="textarea-4"
               name="note4"
               rows={20}
               cols={50}
@@ -226,6 +233,7 @@ export const Note5 = () => {
           )}
           {minimizedNote && (
             <textarea
+              className="textarea-5"
               name="note5"
               rows={20}
               cols={50}
