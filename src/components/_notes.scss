@@ -14,7 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: max-content;
     font-size: 16px;
     border-radius: 50%;
     height: 30px;
@@ -27,18 +26,36 @@
     font-family: $secondary;
     max-height: 410px;
     resize: none;
-    color: $white;
-    background: inherit;
+    color: $black;
     border-top-left-radius: $borderRadius;
     border-bottom-left-radius: $borderRadius;
     border: 1px solid $white;
     margin-right: 50px;
     @media (max-width: 1180px) {
       width: 100%;
-      margin-right: 0px;
       margin: 0 0 50px 0;
     }
   }
+}
+
+.textarea-1 {
+  background: $text1Background;
+}
+
+.textarea-2 {
+  background: $text2Background;
+}
+
+.textarea-3 {
+  background: $text3Background;
+}
+
+.textarea-4 {
+  background: $text4Background;
+}
+
+.textarea-5 {
+  background: $text5Background;
 }
 
 .note-output-container {
