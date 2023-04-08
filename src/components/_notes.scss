@@ -29,10 +29,10 @@
     color: $black;
     border-top-left-radius: $borderRadius;
     border-bottom-left-radius: $borderRadius;
-    border: 1px solid $white;
+    border: 1px solid $black;
     margin-right: 50px;
     @media (max-width: 1180px) {
-      width: 100%;
+      width: calc(100% - 40px);
       margin: 0 0 50px 0;
     }
   }
@@ -120,6 +120,9 @@
   }
   &.max-width-full {
     max-width: 100%;
+    @media (max-width: 1180px) {
+      margin: -30px 0 0 40px;
+    }
   }
 }
 
