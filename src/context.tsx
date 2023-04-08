@@ -13,6 +13,7 @@ const defaultMarkdown: string = `# Heading
 
 * List Item 1
 * List Item 2
+* [Link](https://github.com/seandaniel-uf/notes)
 * [ ] To Do
 * [x] Done
 
@@ -21,6 +22,8 @@ code {
   code: lives here;
 }
 \`\`\`
+
+> Enjoy!
 `;
 
 const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
@@ -29,12 +32,13 @@ const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   // if string just has '/n' characters, return defaultMarkdown
+  // if text area is empty while in textarea
   const [markdown, setMarkdown] = useState<markdownObject>({
-    note1: getLocalStorage("1") ? getLocalStorage("1") : defaultMarkdown,
-    note2: getLocalStorage("2") ? getLocalStorage("2") : defaultMarkdown,
-    note3: getLocalStorage("3") ? getLocalStorage("3") : defaultMarkdown,
-    note4: getLocalStorage("4") ? getLocalStorage("4") : defaultMarkdown,
-    note5: getLocalStorage("5") ? getLocalStorage("5") : defaultMarkdown,
+    note1: getLocalStorage("1"),
+    note2: getLocalStorage("2"),
+    note3: getLocalStorage("3"),
+    note4: getLocalStorage("4"),
+    note5: getLocalStorage("5"),
   });
   const [minimizedNote, setMinimizedNote] = useState<boolean>(true);
 

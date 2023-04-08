@@ -1,13 +1,32 @@
 // colors
-$primary: #f1f1f1;
-$secondary: #292929;
+$white: #f1f1f1;
+$black: #141414;
+$grey: #6f6f6f;
+$darkGrey: #4b4b4b;
 
+// colors - notes
 $note1: #63b1ea;
+$note1Gradient: #548db7;
+$note1Background: #152124;
+
 $note2: #a763ea;
+$note2Gradient: #7b4db7;
+$note2Background: #201524;
+
 $note3: #f7f054;
+$note3Gradient: #c4c04b;
+$note3Background: #242415;
+
 $note4: #9cea63;
+$note4Gradient: #7bc04b;
+$note4Background: #172415;
+
 $note5: #ea63b5;
+$note5Gradient: #b74d7b;
+$note5Background: #241521;
 
-// fonts
-
-$borderRadius: 3px;
+//fonts
+$primary: "Poppins", sans-serif;
+$secondary: "Courier Prime", monospace;
+// extras
+$borderRadius: 10px;

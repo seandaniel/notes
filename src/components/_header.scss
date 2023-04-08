@@ -1,0 +1,122 @@
+@import "../_variables.scss";
+
+header {
+  padding: 15px 0;
+  background: $black;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    margin: 0 auto;
+    list-style-type: none;
+    padding-left: 0px;
+    .notes-text {
+      text-transform: uppercase;
+      font-family: $secondary;
+      letter-spacing: 2px;
+      font-size: 18px;
+      position: absolute;
+      left: 20px;
+      @media (max-width: 480px) {
+        display: none;
+      }
+      span:first-child {
+        color: $note1;
+      }
+      span:nth-child(2) {
+        color: $note2;
+      }
+      span:nth-child(3) {
+        color: $note3;
+      }
+      span:nth-child(4) {
+        color: $note4;
+      }
+      span:nth-child(5) {
+        color: $note5;
+      }
+    }
+    li a.note-button {
+      display: inline-block;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.note-button-1 {
+  background: linear-gradient($black, $black) padding-box,
+    linear-gradient($note1Gradient, $note1) border-box;
+  border: 3px solid transparent;
+  &.active {
+    background: linear-gradient($note1Gradient, $note1) padding-box,
+      linear-gradient($note1Gradient, $note1) border-box;
+  }
+  &.empty {
+    background: linear-gradient($darkGrey, $grey) padding-box,
+      linear-gradient($darkGrey, $grey) border-box;
+    border: 3px solid transparent;
+  }
+}
+
+.note-button-2 {
+  background: linear-gradient($black, $black) padding-box,
+    linear-gradient($note2Gradient, $note2) border-box;
+  border: 3px solid transparent;
+  &.active {
+    background: linear-gradient($note2Gradient, $note2) padding-box,
+      linear-gradient($note2Gradient, $note2) border-box;
+  }
+  &.empty {
+    background: linear-gradient($darkGrey, $grey) padding-box,
+      linear-gradient($darkGrey, $grey) border-box;
+    border: 3px solid transparent;
+  }
+}
+
+.note-button-3 {
+  background: linear-gradient($black, $black) padding-box,
+    linear-gradient($note3Gradient, $note3) border-box;
+  border: 3px solid transparent;
+  &.active {
+    background: linear-gradient($note3Gradient, $note3) padding-box,
+      linear-gradient($note3Gradient, $note3) border-box;
+  }
+  &.empty {
+    background: linear-gradient($darkGrey, $grey) padding-box,
+      linear-gradient($darkGrey, $grey) border-box;
+    border: 3px solid transparent;
+  }
+}
+
+.note-button-4 {
+  background: linear-gradient($black, $black) padding-box,
+    linear-gradient($note4Gradient, $note4) border-box;
+  border: 3px solid transparent;
+  &.active {
+    background: linear-gradient($note4Gradient, $note4) padding-box,
+      linear-gradient($note4Gradient, $note4) border-box;
+  }
+  &.empty {
+    background: linear-gradient($darkGrey, $grey) padding-box,
+      linear-gradient($darkGrey, $grey) border-box;
+    border: 3px solid transparent;
+  }
+}
+
+.note-button-5 {
+  background: linear-gradient($black, $black) padding-box,
+    linear-gradient($note5Gradient, $note5) border-box;
+  border: 3px solid transparent;
+  &.active {
+    background: linear-gradient($note5Gradient, $note5) padding-box,
+      linear-gradient($note5Gradient, $note5) border-box;
+  }
+  &.empty {
+    background: linear-gradient($darkGrey, $grey) padding-box,
+      linear-gradient($darkGrey, $grey) border-box;
+    border: 3px solid transparent;
+  }
+}

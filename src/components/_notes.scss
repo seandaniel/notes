@@ -2,19 +2,187 @@
 
 .note-container {
   display: flex;
-  justify-content: space-between;
+  @media (max-width: 1180px) {
+    flex-direction: column;
+    margin: 0 auto;
+  }
 }
 
 .button-textarea-container {
   display: flex;
   button {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: max-content;
-    padding: 5px;
     font-size: 16px;
-    background: $secondary;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: 3px solid $white;
+    color: $white;
+    margin-right: 10px;
+  }
+  textarea {
+    font-family: $secondary;
+    max-height: 410px;
+    resize: none;
+    color: $white;
+    background: inherit;
+    border-top-left-radius: $borderRadius;
+    border-bottom-left-radius: $borderRadius;
+    border: 1px solid $white;
+    margin-right: 50px;
+    @media (max-width: 1180px) {
+      width: 100%;
+      margin-right: 0px;
+      margin: 0 0 50px 0;
+    }
+  }
+}
+
+.note-output-container {
+  max-width: 516px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  @media (max-width: 1180px) {
+    // button width is 30px;
+    max-width: calc(100% - 30px);
+    width: calc(100% - 30px);
+    margin: 0 0 0 30px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 20px 0;
+  }
+
+  p {
+    margin: 0 0 15px 0;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 15px 0;
+    padding-left: 15px;
+    li {
+      margin-bottom: 5px;
+      p {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
+
+  blockquote {
+    margin: 0 0 15px 0;
+    p {
+      padding: 10px 0 10px 10px;
+      margin-bottom: 0px;
+    }
+  }
+
+  pre {
+    margin: 0 0 15px 0;
+    background: $black;
     border-radius: $borderRadius;
-    border: 2px solid $primary;
-    color: $primary;
+    padding: 15px;
+    font-family: $secondary;
+    word-wrap: break-word;
+  }
+
+  hr {
+    margin: 0 0 15px 0;
+  }
+  &.max-width-full {
+    max-width: 100%;
+  }
+}
+
+// individual note styles
+.note-output-container-1 {
+  strong,
+  a {
+    color: $note1;
+  }
+  blockquote {
+    border-left: 3px solid $note1;
+  }
+  hr {
+    border: 1px solid $note1;
+  }
+  pre {
+    color: $note1;
+  }
+}
+
+.note-output-container-2 {
+  strong,
+  a {
+    color: $note2;
+  }
+  blockquote {
+    border-left: 3px solid $note2;
+  }
+  hr {
+    border: 1px solid $note2;
+  }
+  pre {
+    color: $note2;
+  }
+}
+
+.note-output-container-3 {
+  strong,
+  a {
+    color: $note3;
+  }
+  blockquote {
+    border-left: 3px solid $note3;
+  }
+  hr {
+    border: 1px solid $note3;
+  }
+  pre {
+    color: $note3;
+  }
+}
+
+.note-output-container-4 {
+  strong,
+  a {
+    color: $note4;
+  }
+  blockquote {
+    border-left: 3px solid $note4;
+  }
+  hr {
+    border: 1px solid $note4;
+  }
+  pre {
+    color: $note4;
+  }
+}
+
+.note-output-container-5 {
+  strong,
+  a {
+    color: $note5;
+  }
+  blockquote {
+    border-left: 3px solid $note5;
+  }
+  hr {
+    border: 1px solid $note5;
+  }
+  pre {
+    color: $note5;
   }
 }
