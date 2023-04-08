@@ -1,69 +1,64 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, PropsWithChildren } from "react";
+import { markdownObject, contextType } from "./types";
 
-const AppContext = React.createContext(null);
+const AppContext = React.createContext<contextType | null>(null);
 
-// const defaultMarkdown = `# Heading
+const defaultMarkdown: string = `# Heading
 
-// **Bold Text**
+**Bold Text**
 
-// *Italic Text*
+*Italic Text*
 
-// ~~StrikeThrough Text~~
+~~StrikeThrough Text~~
 
-// * List Item 1
-// * List Item 2
-// * [ ] To Do
-// * [x] Done
+* List Item 1
+* List Item 2
+* [ ] To Do
+* [x] Done
 
-// \`\`\`
-// code {
-//   code: lives here;
-// }
-// \`\`\`
-// `;
+\`\`\`
+code {
+  code: lives here;
+}
+\`\`\`
+`;
 
-const AppProvider = ({ children }) => {
-  // set local storage or get individal localstorage?
+const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const getLocalStorage = (noteNumber: string): string | null => {
+    return window.localStorage.getItem(`note${noteNumber}`);
+  };
 
-  const [defaultMarkdown] = useState("X");
-
-  const [markdown, setMarkdown] = useState<Object>({
-    note1: window.localStorage.getItem("note1"),
-    note2: window.localStorage.getItem("note2"),
+  // if string just has '/n' characters, return defaultMarkdown
+  const [markdown, setMarkdown] = useState<markdownObject>({
+    note1: getLocalStorage("1") ? getLocalStorage("1") : defaultMarkdown,
+    note2: getLocalStorage("2") ? getLocalStorage("2") : defaultMarkdown,
+    note3: getLocalStorage("3") ? getLocalStorage("3") : defaultMarkdown,
+    note4: getLocalStorage("4") ? getLocalStorage("4") : defaultMarkdown,
+    note5: getLocalStorage("5") ? getLocalStorage("5") : defaultMarkdown,
   });
-
-  useEffect(() => {}, [markdown]);
-  const [notesState, setNotesState] = useState(window.localStorage);
-
-  // use effect takes arguments, which I don't know how to update
-  useEffect(() => {
-    handleNote(e.target.value, "1");
-  }, [markdown]);
+  const [minimizedNote, setMinimizedNote] = useState<boolean>(true);
 
   const handleNote = (
     e: React.ChangeEvent<HTMLTextAreaElement>,
     noteNumber: string
-  ) => {
+  ): void => {
     setMarkdown({
       ...markdown,
       [e.target.name]: e.target.value,
     });
 
-    // set it to that specific note
-    localStorage.setItem(`note${noteNumber}`, markdown[`note${noteNumber}`]);
+    localStorage.setItem(`note${noteNumber}`, e.target.value);
   };
 
-  const [minimizedNote, setMinimizedNote] = useState<boolean>(true);
-  const minimizeNote = () => {
+  const minimizeNote = (): void => {
     setMinimizedNote(!minimizedNote);
   };
 
   return (
     <AppContext.Provider
       value={{
-        defaultMarkdown,
         markdown,
-        notesState,
+        defaultMarkdown,
         handleNote,
         minimizedNote,
         minimizeNote,
@@ -77,7 +72,7 @@ const AppProvider = ({ children }) => {
 export const useGlobalContext = () => {
   const currentAppContext = useContext(AppContext);
   if (!currentAppContext) {
-    throw new Error("useGlobalContext must be used within a AppProvider");
+    throw new Error("useGlobalContext must be used within an AppProvider");
   }
   return currentAppContext;
 };

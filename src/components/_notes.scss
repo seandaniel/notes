@@ -1,0 +1,20 @@
+@import "../_variables.scss";
+
+.note-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-textarea-container {
+  display: flex;
+  button {
+    display: inline-block;
+    height: max-content;
+    padding: 5px;
+    font-size: 16px;
+    background: $secondary;
+    border-radius: $borderRadius;
+    border: 2px solid $primary;
+    color: $primary;
+  }
+}

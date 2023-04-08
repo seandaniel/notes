@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 export const Header = () => {
-  const { localStorageState } = useGlobalContext();
+  const { markdown, defaultMarkdown } = useGlobalContext();
   const location = useLocation();
   return (
     <header>
