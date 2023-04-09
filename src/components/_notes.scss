@@ -2,14 +2,10 @@
 
 .note-container {
   display: flex;
-  @media (max-width: 1180px) {
-    flex-direction: column;
-    margin: 0 auto;
-  }
+  flex-direction: column;
 }
 
 .button-textarea-container {
-  display: flex;
   button {
     display: flex;
     align-items: center;
@@ -20,21 +16,16 @@
     width: 30px;
     border: 3px solid $white;
     color: $white;
-    margin-right: 10px;
+    margin: 0 10px 10px 0;
   }
   textarea {
     font-family: $secondary;
-    max-height: 410px;
+    max-height: 400px;
+    height: 400px;
     resize: none;
     color: $black;
-    border-top-left-radius: $borderRadius;
-    border-bottom-left-radius: $borderRadius;
-    border: 1px solid $black;
-    margin-right: 50px;
-    @media (max-width: 1180px) {
-      width: calc(100% - 40px);
-      margin: 0 0 50px 0;
-    }
+    border-radius: $borderRadius;
+    width: 100%;
   }
 }
 
@@ -59,12 +50,9 @@
 }
 
 .note-output-container {
-  max-width: 516px;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  @media (max-width: 1180px) {
-    margin: 0 0 0 40px;
-  }
+  margin: 40px 0 0 0;
   h1,
   h2,
   h3,
@@ -106,7 +94,7 @@
   pre {
     margin: 0 0 15px 0;
     background: $black;
-    border-radius: $borderRadius;
+    border-radius: $borderRadius2;
     padding: 15px;
     font-family: $secondary;
     word-wrap: break-word;
@@ -115,11 +103,9 @@
   hr {
     margin: 0 0 15px 0;
   }
-  &.max-width-full {
-    max-width: 100%;
-    @media (max-width: 1180px) {
-      margin: -30px 0 0 40px;
-    }
+
+  &.textarea-minimized {
+    margin: 0 0 0 0;
   }
 }
 

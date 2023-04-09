@@ -27,8 +27,6 @@ export const Note1 = () => {
             <textarea
               className="textarea-1"
               name="note1"
-              rows={20}
-              cols={50}
               value={
                 markdown.note1
                   ? markdown.note1
@@ -44,7 +42,7 @@ export const Note1 = () => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             className={`note-output-container note-output-container-1 ${
-              !minimizedNote ? "max-width-full" : ""
+              !minimizedNote ? "textarea-minimized" : ""
             }`}
           >
             {markdown.note1
@@ -96,7 +94,7 @@ export const Note2 = () => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             className={`note-output-container note-output-container-2 ${
-              !minimizedNote ? "max-width-full" : ""
+              !minimizedNote ? "textarea-minimized" : ""
             }`}
           >
             {markdown.note2
@@ -148,7 +146,7 @@ export const Note3 = () => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             className={`note-output-container note-output-container-3 ${
-              !minimizedNote ? "max-width-full" : ""
+              !minimizedNote ? "textarea-minimized" : ""
             }`}
           >
             {markdown.note3
@@ -200,7 +198,7 @@ export const Note4 = () => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             className={`note-output-container note-output-container-3 ${
-              !minimizedNote ? "max-width-full" : ""
+              !minimizedNote ? "textarea-minimized" : ""
             }`}
           >
             {markdown.note4
@@ -252,7 +250,7 @@ export const Note5 = () => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             className={`note-output-container note-output-container-5 ${
-              !minimizedNote ? "max-width-full" : ""
+              !minimizedNote ? "textarea-minimized" : ""
             }`}
           >
             {markdown.note5

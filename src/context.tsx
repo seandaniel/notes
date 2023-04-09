@@ -23,8 +23,7 @@ code {
 }
 \`\`\`
 
-> Enjoy!
-`;
+> Enjoy!`;
 
 const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const getLocalStorage = (noteNumber: string): string | null => {
