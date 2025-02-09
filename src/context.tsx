@@ -3,25 +3,17 @@ import { markdownObject, contextType } from "./types";
 
 const AppContext = React.createContext<contextType | null>(null);
 
-const defaultMarkdown: string = `# Heading
+const defaultMarkdown: string = `# **Welcome to Notes**
 
-**Bold Text**
+The app allows you to jot down lists, to-do's, recipes, birthdays to remember and they will be saved here on your browser **forever**!! 😎
 
-*Italic Text*
+### To Do
 
-~~StrikeThrough Text~~
-
-* List Item 1
-* List Item 2
-* [Link](https://github.com/seandaniel-uf/notes)
-* [ ] To Do
-* [x] Done
-
-\`\`\`
-code {
-  code: lives here;
-}
-\`\`\`
+* ~~Get groceries~~
+* Walk the pup
+* Fold laundry
+* Tell Sean you like his app
+* [Learn all markdown styling text](https://www.markdownguide.org/basic-syntax/)
 
 > Enjoy!`;
 
