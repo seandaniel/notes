@@ -16,11 +16,11 @@ export const Note1 = () => {
         <div className="button-textarea-container">
           {minimizedNote ? (
             <button onClick={minimizeNote} title="Minimize Note">
-              <FaMinus />
+              Minimize
             </button>
           ) : (
             <button onClick={minimizeNote} title="Unminimize Note">
-              <FaPlus />
+              Maximize
             </button>
           )}
           {minimizedNote && (
