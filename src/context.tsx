@@ -5,7 +5,7 @@ const AppContext = React.createContext<contextType | null>(null);
 
 const defaultMarkdown: string = `# **Welcome to Notes**
 
-The app allows you to jot down lists, to-do's, recipes, birthdays to remember and they will be saved here on your browser **forever**!! 😎
+This app allows you to jot down lists, to-do's, recipes, and birthdays to remember and they will be saved here on your browser **forever**!! 😎
 
 ### To Do
 
