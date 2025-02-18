@@ -19,7 +19,7 @@ export const Note1 = () => {
               <FaMinus/>
             </button>
           ) : (
-            <button onClick={minimizeNote} title="Unminimize Note">
+            <button onClick={minimizeNote} title="Maximize Note">
               <FaPlus/>
             </button>
           )}
