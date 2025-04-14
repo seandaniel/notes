@@ -1,4 +1,10 @@
-This project was bootstrapped with **[Vite](https://vitejs.dev/guide)**.
+## ⚙️ Tech Used
+
+- React
+- TypeScript
+- Sass
+- React Router
+- Context API
 
 ## 🛠️ Getting Started
 
@@ -20,3 +26,22 @@ npm run dev
 yarn dev
 ```
 The app will be available at: [http://localhost:5173/](http://localhost:5173/)
+
+## 🧩 Folder Structure
+
+```
+src/
+├── components/
+│   ├── Header.tsx
+│   ├── Notes.tsx
+│   ├── _header.scss
+│   └── _notes.scss
+├── App.scss
+├── App.tsx
+├── _global.scss
+├── _setup.scss
+├── _variables.scss
+├── context.tsx
+├── main.tsx
+└── types.ts
+```
