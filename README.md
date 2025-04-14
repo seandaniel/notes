@@ -1,3 +1,5 @@
+This project was bootstrapped with **[Vite](https://vitejs.dev/guide)**.
+
 ## 🛠️ Getting Started
 
 Make sure you have the following installed:
