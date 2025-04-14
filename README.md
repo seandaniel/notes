@@ -5,6 +5,7 @@
 - Sass
 - React Router
 - Context API
+- Local Storage
 
 ## 🛠️ Getting Started
 
