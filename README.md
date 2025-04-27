@@ -28,9 +28,9 @@ The app will be available at: [http://localhost:5173/](http://localhost:5173/)
 
 ```
 src/
-├── components/       # Components have their individual partial
+├── components/        # Components have their individual partial
 │   ├── Header.tsx
-│   ├── Notes.tsx     # All 5 notepads with functionality from context.tsx
+│   ├── Notes.tsx      # All 5 notepads with functionality from context.tsx
 │   ├── _header.scss
 │   └── _notes.scss
 ├── App.scss           # All Sass partial imports (_global.scss, _setup.scss, _variables.scss)
